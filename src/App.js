@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Graphic from "./components/Graphic";
+import Title from "./components/Title";
 // import friends from "./friends.json";
 
 class App extends Component{
@@ -56,6 +57,10 @@ class App extends Component{
                 highScore: this.state.score + 1
             });
         }
+        if(this.state.score === 11){
+            alert("Congratulation. You have a fantastic memory!!");
+            this.resetGame();
+        }
         return
     }
 
@@ -71,9 +76,11 @@ class App extends Component{
         return (
             <div>
                 {console.log("rerendered")}
-                <p>score: {this.state.score}
-                    highScore: {this.state.highScore}
-                </p>
+                <Title 
+                    score={this.state.score}
+                    highScore={this.state.highScore}
+                 />
+                 
                 <Graphic
                     src={`images/img${this.state.id[0]}.jpg`}
                     id={this.state.id[0]}
