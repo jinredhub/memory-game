@@ -6,7 +6,9 @@ class App extends Component{
 
     state = {
         score: 0,
-        id : [0,1,2,3,4,5,6,7,8,9,10,11]
+        id : [0,1,2,3,4,5,6,7,8,9,10,11],
+        highScore: 0,
+        clickedId: [100],
     }
 
     shuffle = () => {
@@ -28,12 +30,40 @@ class App extends Component{
         console.log(`array value is: ${array}`);
     }
 
-    clickImg = () => {
+    clickImg = (id) => {
+        let clickedIds = this.state.clickedId;
+        console.log("clicked ids: ", clickedIds);
+        console.log("currentClickedIds: ", id);
+
+        for (let value of clickedIds){
+            // console.log("value in loop is: ", value);
+            if(id === value){
+                console.log("reset game");
+                this.resetGame();
+                return;
+            }
+        }
+        console.log("score point");
         this.setState({
             score: this.state.score + 1
         });
-        // this.shuffle();
-        return console.log(this.state.score)
+        clickedIds.push(id);
+        console.log("new clickedIds: " + clickedIds);
+        if (this.state.score >= this.state.highScore){
+            // this.state.highScore = this.state.score;
+            console.log("new high score");
+            this.setState({
+                highScore: this.state.score + 1
+            });
+        }
+        return
+    }
+
+    resetGame = () =>{
+        this.setState({
+            score: 0,
+            clickedId: [100]
+        })
     }
 
     
@@ -41,8 +71,9 @@ class App extends Component{
         return (
             <div>
                 {console.log("rerendered")}
-                <p>{this.state.score
-                }</p>
+                <p>score: {this.state.score}
+                    highScore: {this.state.highScore}
+                </p>
                 <Graphic
                     src={`images/img${this.state.id[0]}.jpg`}
                     id={this.state.id[0]}
