@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Graphic from "./components/Graphic";
 import Title from "./components/Title";
-// import friends from "./friends.json";
+import Wrapper from "./components/Wrapper";
+import "./App.css";
 
 class App extends Component{
 
@@ -80,79 +81,22 @@ class App extends Component{
                     score={this.state.score}
                     highScore={this.state.highScore}
                  />
-                 
-                <Graphic
-                    src={`images/img${this.state.id[0]}.jpg`}
-                    id={this.state.id[0]}
-                    onClick={this.clickImg
-                    }
-                />
-                <Graphic
-                    src={`images/img${this.state.id[1]}.jpg`}
-                    id={this.state.id[1]}
-                    onClick={this.clickImg
-                    }
-                />
-                <Graphic
-                    src={`images/img${this.state.id[2]}.jpg`}
-                    id={this.state.id[2]}
-                    onClick={this.clickImg
-                    }
-                />
-                <Graphic
-                    src={`images/img${this.state.id[3]}.jpg`}
-                    id={this.state.id[3]}
-                    onClick={this.clickImg
-                    }
-                />
-                <Graphic
-                    src={`images/img${this.state.id[4]}.jpg`}
-                    id={this.state.id[4]}
-                    onClick={this.clickImg
-                    }
-                />
-                <Graphic
-                    src={`images/img${this.state.id[5]}.jpg`}
-                    id={this.state.id[5]}
-                    onClick={this.clickImg
-                    }
-                />
-                <Graphic
-                    src={`images/img${this.state.id[6]}.jpg`}
-                    id={this.state.id[6]}
-                    onClick={this.clickImg
-                    }
-                />
-                <Graphic
-                    src={`images/img${this.state.id[7]}.jpg`}
-                    id={this.state.id[7]}
-                    onClick={this.clickImg
-                    }
-                />
-                <Graphic
-                    src={`images/img${this.state.id[8]}.jpg`}
-                    id={this.state.id[8]}
-                    onClick={this.clickImg
-                    }
-                />
-                <Graphic
-                    src={`images/img${this.state.id[9]}.jpg`}
-                    id={this.state.id[9]}
-                    onClick={this.clickImg
-                    }
-                />
-                <Graphic
-                    src={`images/img${this.state.id[10]}.jpg`}
-                    id={this.state.id[10]}
-                    onClick={this.clickImg
-                    }
-                />
-                 <Graphic
-                    src={`images/img${this.state.id[11]}.jpg`}
-                    id={this.state.id[11]}
-                    onClick={this.clickImg
-                    }
-                />
+
+                <Wrapper>
+                    <div className="mainContainer">
+                    <div className="mainContent">
+                     {this.state.id.map((id) => (
+                        <Graphic
+                            src={`images/img${id}.jpg`}
+                            id={id}
+                            onClick={this.clickImg}
+                            key={id}
+                        />
+                    ))}
+                     </div>
+                     </div>
+                </Wrapper>
+
                 {this.shuffle()}
             </div>
 

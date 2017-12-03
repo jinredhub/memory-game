@@ -1,0 +1,11 @@
+
+.mainContainer{
+	text-align: center;
+	width: 100%;
+	padding: 50px 0;	
+}
+.mainContent{
+	display: block;
+	margin: 0 auto;
+	max-width: 1000px;
+}

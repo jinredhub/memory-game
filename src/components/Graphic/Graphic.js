@@ -5,9 +5,7 @@ const Graphic = props => {
 
   return (
 
-    <div className="imgDiv">
-      <img onClick={()=>props.onClick(props.id)} alt="img" src={props.src} id={props.id}/>
-    </div>
+      <img className="img" onClick={()=>props.onClick(props.id)} alt="img" src={props.src} id={props.id}/>
   )
 };
 
