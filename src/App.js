@@ -33,6 +33,7 @@ class App extends Component{
     }
 
     clickImg = (id) => {
+        this.removeShake();
         let clickedIds = this.state.clickedId;
         console.log("clicked ids: ", clickedIds);
         console.log("currentClickedIds: ", id);
@@ -41,6 +42,7 @@ class App extends Component{
             // console.log("value in loop is: ", value);
             if(id === value){
                 console.log("reset game");
+                this.shake();
                 this.resetGame();
                 return;
             }
@@ -72,6 +74,16 @@ class App extends Component{
         })
     }
 
+    removeShake = () =>{
+        let shakeDiv = document.querySelector(".mainContent");
+        shakeDiv.classList.remove("shake");
+    }
+
+    shake = () =>{
+                let shakeDiv = document.querySelector(".mainContent");
+                shakeDiv.classList.add("shake");
+    }
+
     
     render(){
         return (
@@ -84,19 +96,18 @@ class App extends Component{
 
                 <Wrapper>
                     <div className="mainContainer">
-                    <div className="mainContent">
-                     {this.state.id.map((id) => (
-                        <Graphic
-                            src={`images/img${id}.jpg`}
-                            id={id}
-                            onClick={this.clickImg}
-                            key={id}
-                        />
-                    ))}
-                     </div>
+                        <div className="mainContent">
+                             {this.state.id.map((id) => (
+                                <Graphic
+                                    src={`images/img${id}.jpg`}
+                                    id={id}
+                                    onClick={this.clickImg}
+                                    key={id}
+                                />
+                            ))}
+                         </div>
                      </div>
                 </Wrapper>
-
                 {this.shuffle()}
             </div>
 

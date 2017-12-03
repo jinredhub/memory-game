@@ -18,6 +18,7 @@
 	background-image: url("/images/bg2.png");
 	text-align: center;
 	min-width: 555px;
+	border-bottom: 5px solid #f44242;
 }
 #title-content{
 	margin-top: 150px;
