@@ -12,7 +12,8 @@ const Title = props => {
     	<br />
     	<div id="title-content">
     		<h1>Memory Game</h1>
-        <p>Click on an image to earn points, but don't click on any more than once!</p>
+        <p>Click on an color to earn points, but don't click on any more than once!</p>
+        <p>Can you beat the game!?</p>
     	</div>
     </div>
     </div>
