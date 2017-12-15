@@ -13,6 +13,7 @@ class App extends Component{
         clickedId: [100],
     }
 
+    // shuffle the imgs everytime render page
     shuffle = () => {
         var array = this.state.id;
         var currentIndex = array.length, temporaryValue, randomIndex;
@@ -32,6 +33,8 @@ class App extends Component{
         console.log(`array value is: ${array}`);
     }
 
+    // when img is clicked: 
+    // 1. add score. 2. reset game if clicked same img. 3.win if clicked all imgs
     clickImg = (id) => {
         this.removeShake();
         let clickedIds = this.state.clickedId;
@@ -61,12 +64,13 @@ class App extends Component{
             });
         }
         if(this.state.score === 11){
-            alert("Congratulation. You have a fantastic memory!!");
+            alert("Congratulation. WOW!! You have a fantastic memory!!");
             this.resetGame();
         }
         return
     }
 
+    // resetting game
     resetGame = () =>{
         this.setState({
             score: 0,
@@ -74,11 +78,13 @@ class App extends Component{
         })
     }
 
+    // remove shake animation
     removeShake = () =>{
         let shakeDiv = document.querySelector(".mainContent");
         shakeDiv.classList.remove("shake");
     }
 
+    // add shake animation
     shake = () =>{
                 let shakeDiv = document.querySelector(".mainContent");
                 shakeDiv.classList.add("shake");
@@ -87,12 +93,18 @@ class App extends Component{
     
     render(){
         return (
+
             <div>
                 {console.log("rerendered")}
                 <Title 
                     score={this.state.score}
                     highScore={this.state.highScore}
-                 />
+                 >
+                    <h1>Memory Game</h1>
+                    <p>Click on a color to earn points, but don't click on any more than once!</p>
+                    <p>Can you beat the game!?</p>
+                </Title>
+
 
                 <Wrapper>
                     <div className="mainContainer">
@@ -110,7 +122,6 @@ class App extends Component{
                 </Wrapper>
                 {this.shuffle()}
             </div>
-
             
         )
     }

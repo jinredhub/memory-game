@@ -11,9 +11,7 @@ const Title = props => {
     <div id="title-container">
     	<br />
     	<div id="title-content">
-    		<h1>Memory Game</h1>
-        <p>Click on an color to earn points, but don't click on any more than once!</p>
-        <p>Can you beat the game!?</p>
+        {props.children}
     	</div>
     </div>
     </div>
