@@ -117,7 +117,7 @@ class App extends Component{
                                     key={id}
                                 />
                             ))}
-                         </div>
+                        </div>
                      </div>
                 </Wrapper>
                 {this.shuffle()}
