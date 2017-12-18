@@ -15,3 +15,5 @@ Run the following coomand While in this directory
 ```
 yarn start
 ```
+
+![website img](https://github.com/jinredhub/memory-game/blob/master/screenshots/Screen%20Shot_1.png)
